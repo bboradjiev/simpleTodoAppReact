@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function AddTodo({ getTodo }) {
   const [input, setInput] = useState("");
-  
+   
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTodo = {

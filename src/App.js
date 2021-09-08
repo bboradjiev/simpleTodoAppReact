@@ -6,6 +6,7 @@ import TodoList from "./components/TodoList";
 import TodosCount from "./components/TodosCount";
 
 function App() {
+  //state for the todos
   const [todos, setTodos] = useState(() => {
     // get the todos from localstorage
     const savedTodos = localStorage.getItem("todos");
@@ -19,16 +20,19 @@ function App() {
       return [];
     }
   });
-
+  //useEffect hook so that localstorage can be updated with the
+  //current todo list
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  //obtaining the todo from AddTodo Component
   const getTodo = (todo) => {
     const newTodos = [todo, ...todos];
     setTodos(newTodos);
   };
-
+  
+  //toggling the complete button for each todo in TodoItem Component
   const toggleComplete = (id) => {
     setTodos(
       todos.map((todo) => {
@@ -40,6 +44,7 @@ function App() {
     );
   };
 
+  //deleting the todo from the TodoItem Component
   const deleteTodo = (id) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
