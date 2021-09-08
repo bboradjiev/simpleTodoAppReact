@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
-function TodosCount() {
-    return (
-        <div>
-            Todos count
-        </div>
-    )
+function TodosCount({todos}) {
+  return (
+    <div>
+      <div clasName="todos-total">
+        total items: <span class="output">{todos.length}</span>
+      </div>
+    </div>
+  );
 }
 
-export default TodosCount
+export default TodosCount;
