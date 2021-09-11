@@ -6,8 +6,7 @@ import TodoList from "./components/TodoList";
 import TodosCount from "./components/TodosCount";
 
 function App() {
-  //state for the todos
-  const [todos, setTodos] = useState(() => {
+  const state = () => {
     // get the todos from localstorage
     const savedTodos = localStorage.getItem("todos");
     // if there are todos stored
@@ -19,7 +18,9 @@ function App() {
       // return an empty array
       return [];
     }
-  });
+  }
+  //state for the todos
+  const [todos, setTodos] = useState(state);
   //useEffect hook so that localstorage can be updated with the
   //current todo list
   useEffect(() => {
